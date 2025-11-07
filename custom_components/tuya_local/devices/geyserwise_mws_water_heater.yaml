@@ -7,23 +7,23 @@ products:
 entities:
   - entity: water_heater
     dps:
-      - id: 1
+- id: 1
         type: boolean
-        name: power
         name: operation_mode
         mapping:
-          - dps_val: "Off"
-            value: false
-          - dps_val: "On"
-            value: true
+          - dps_val: false
+            value: "Off"
+            hidden: true
+          - dps_val: true
+            value: "On"
             default: true
       - id: 2
         type: string
         name: away_mode
         mapping:
-          - dps_val: Timer
+          - dps_val: "Timer"
             value: false
-          - dps_val: Holiday
+          - dps_val: "Holiday"
             value: true
       - id: 10
         type: integer
@@ -165,11 +165,6 @@ entities:
       - id: 110
         type: string
         name: sensor
-        mapping:
-          - dps_val: "Solar"
-            value: Solar
-          - dps_val: "AC"
-            value: AC
   - entity: sensor
     class: power
     category: diagnostic
@@ -180,6 +175,9 @@ entities:
         name: sensor
         unit: W
         class: measurement
+        force: true
+        mapping:
+          - scale: 10
   - entity: sensor
     class: power
     category: diagnostic
@@ -190,6 +188,9 @@ entities:
         name: sensor
         unit: W
         class: measurement
+        force: true
+        mapping:
+          - scale: 10
   - entity: sensor
     class: current
     category: diagnostic
@@ -200,6 +201,9 @@ entities:
         name: sensor
         unit: A
         class: measurement
+        force: true
+        mapping:
+          - scale: 10
   - entity: sensor
     class: voltage
     category: diagnostic
@@ -210,3 +214,6 @@ entities:
         name: sensor
         unit: V
         class: measurement
+        force: true
+        mapping:
+          - scale: 10
